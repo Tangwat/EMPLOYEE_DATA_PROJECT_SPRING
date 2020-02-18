@@ -1,6 +1,6 @@
 package com.employeeDao;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -13,14 +13,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.employee.dao.EmployeeDao;
 import com.employee.entity.Employee;
 
+@Sql(scripts= {"classpath:/db/create-table.sql"})
 @ContextConfiguration("classpath:data-context.xml")
 @RunWith(SpringRunner.class)
-
 public class EmployeeDaoImplTest {
 	
 	
@@ -77,7 +78,7 @@ public class EmployeeDaoImplTest {
 		
 		int id = newEmployee.getEmployeeId();
 		
-		//System.out.println("New employee Id -->" + id);
+		System.out.println("New employee Id -->" + id);
 		
 		Employee existingEmployee = employeeDaoImpl.getById(id);
 		assertThat(existingEmployee).isNotNull();
