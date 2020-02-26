@@ -3,6 +3,8 @@
  */
 package com.employee.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,11 @@ public class EmployeeServiceImpl implements EmployeeDao {
 		Employee savedEmployee =
 				employeeDaoImpl.getByEmail(email);
 		return savedEmployee;
+	}
+	public List<Employee> findAll(){
+		List <Employee> result = employeeDaoImpl.findAll();
+		
+		return result;
 	}
 
 }
