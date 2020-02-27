@@ -30,7 +30,7 @@
 				<td>${tempEmployee.lastName}</td>
 				<td>${tempEmployee.email}</td>
 				<td>${tempEmployee.phoneNumber}</td>
-				<td><a href="">Update</a></td>
+				<td><a href="${updateLink}">Update</a></td>
 			</tr>
 			
 		</c:forEach>
